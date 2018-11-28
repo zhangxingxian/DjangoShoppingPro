@@ -32,7 +32,10 @@ CUSTOM_APPS = [
 
 # 第三方App
 EXT_APPS = [
-
+    'xadmin',
+    'crispy_forms',
+    # 非必要 主要用于修改样式
+    'reversion',
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + EXT_APPS
@@ -52,7 +55,14 @@ ROOT_URLCONF = 'DjangoShoppingPro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'apps/account/templates'),
+            os.path.join(BASE_DIR, 'apps/cate/templates'),
+            os.path.join(BASE_DIR, 'apps/detail/templates'),
+            os.path.join(BASE_DIR, 'apps/main/templates'),
+            os.path.join(BASE_DIR, 'apps/search/templates'),
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -119,6 +129,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'apps/main/static'),
 )
+
+AUTH_USER_MODEL = 'main.User'
 
 # ===============配置访问多媒体的路径=============
 MEDIA_URL = '/media/'

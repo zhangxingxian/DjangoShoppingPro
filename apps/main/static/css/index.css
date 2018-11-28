@@ -3,10 +3,49 @@
     padding: 15px 5px;
 }
 
+.top > span:last-of-type {
+    float: right;
+}
+
+/*.logo{*/
+
+    /*background-color: #FF0000;*/
+/*}*/
+
 .top span, .top a {
     padding: 5px;
 }
 
+/*.logo {*/
+    /*height: 50px;*/
+
+/*}*/
+
 .shop > li {
     float: left;
+    width: 220px;
+
 }
+
+.shop > li > a p:nth-of-type(1){
+    /*多余字体隐藏*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cate {
+    float: left;
+}
+
+#banner {
+
+}
+
+/*.main {*/
+    /*width: 220px;*/
+/*}*/
+
+/*#main > p {*/
+
+/*}*/

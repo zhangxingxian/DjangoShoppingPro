@@ -2,6 +2,12 @@
     <ul>
         {% for cate in cate_list %}
             <li><a href="#">{{ cate.name }}</a></li>
+
+
+            {% for submenu in cate.submenu1 %}
+                <p>{{ submenu }}</p>
+            {% endfor %}
+
         {% endfor %}
     </ul>
 

@@ -6,41 +6,29 @@
 {% endblock %}
 
 {% block page_css %}
-    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
 {% endblock %}
 
 {% block page_js %}
-    <script src="{% static 'js/swiper.js' %}"></script>
-    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}" rel="stylesheet" type="text/javascript"></script>
+    <script src="{% static 'js/index.js' %}" rel="stylesheet" type="text/javascript"></script>
 {% endblock %}
 
 {% block page_head %}
 
+{#    作为公共部分,引入#}
     {% include 'include/common/top.html' %}
-{#    {% include 'include/logo.html' %}#}
+    {% include 'include/common/logo.html' %}
     {% include 'include/navigation.html' %}
-    {% include 'include/cate.html' %}
-    {% include 'include/banner.html' %}
+    <div class="clear">
+        {% include 'include/cate.html' %}
+        {% include 'include/banner.html' %}
+    </div>
 
 
 {% endblock %}
 
 {% block page_main %}
-    <div>
-        {% for cate in cate_list %}
-            <p>{{ cate.name }}</p>
-            <ul class="shop clear">
-                {% for  shop in cate.shops %}
-                    <li>
-                        <a href="#">
-                            <img src="/static/img/middle/{{ shop.img }}.jpg">
-                            <p>{{ shop.name }}</p>
-                            <p>{{ shop.promote_price }}</p>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    </div>
+    {% include  'include/main.html' %}
 {% endblock %}
