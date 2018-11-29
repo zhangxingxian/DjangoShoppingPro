@@ -1,18 +1,30 @@
 {% load static %}
 {% load staticfiles %}
-<div id="logo" class="logo">
-    <img src="{% static 'img/logo.gif' %}" >
-    <div>
-{#        搜索框#}
-        <form action="{% url 'search' %}" method="get">
-            <input type="text" name="keyword" placeholder="请输入关键字">
-            <input type="submit" value="搜索">
-        </form>
+<div id="logo" class="logo clear">
+
+    <img src="{% static 'img/logo.gif' %}">
+
+    <div class="search">
+        {#搜索框#}
+        <div>
+            <form action="{% url 'search' %}" method="get">
+                <input class="but1" type="text" name="keyword" placeholder="请输入关键字"><input class="but2" type="submit"
+                                                                                           value="搜索">
+            </form>
+        </div>
+
+        {#热门推荐#}
+        <ul class="search_floor clear">
+            <li><a href="#">针织衫</a><span>|</span></li>
+            <li><a href="#">连衣裙</a><span>|</span></li>
+            <li><a href="#">四件套</a><span>|</span></li>
+            <li><a href="#">摄像头</a><span>|</span></li>
+            <li><a href="#">客厅灯</a><span>|</span></li>
+            <li><a href="#">口红</a><span>|</span></li>
+            <li><a href="#">手机</a><span>|</span></li>
+            <li><a href="#">运动鞋</a><span>|</span></li>
+            <li><a href="#">牛奶</a></li>
+        </ul>
     </div>
-{#    热门推荐#}
-    <ul>
 
-            <li><a href="#">口红</a></li>
-
-    </ul>
 </div>

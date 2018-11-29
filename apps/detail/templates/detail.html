@@ -53,7 +53,31 @@
 
             })
 
-        })
+        });
+
+
+        $(function () {
+            $('#buy').click(function () {
+                let number = $('#number').val();
+                let shop_id = $(this).attr('shopid')
+                data = {
+                    number : number,
+                    shop_id : shop_id
+                };
+
+
+                {## 发起ajax请求#}
+                $.get('{% url 'add' %}', data, function(result){
+                    let number = $('#car_number').text();
+                        number += result.data;
+                        $('#car_number').text(number)
+                    } else if (result.status === 302) {
+                        window.location.href = result.content
+                    }
+
+                })
+            })
+        });
 
 
     </script>

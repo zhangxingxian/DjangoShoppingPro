@@ -1,0 +1,25 @@
+#top {
+    background-color: #f2f2f2;
+    padding: 5px 0;
+    color: #bfbfbf;
+    width: 100%;
+}
+
+.top {
+    width: 94%;
+    margin: 0 auto;
+}
+
+.top span, .top a {
+    color: #999999;
+}
+
+.top a {
+    text-decoration: none;
+}
+
+.top > span:last-of-type {
+    float: right;
+}
+
+

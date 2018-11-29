@@ -1,22 +1,25 @@
-<div id="top" class="top clear">
-    <a href="/">
-        <span><span class="glyphicon glyphicon-home"></span>商城首页</span>
-    </a>
-    <span>欢迎来到91商城</span>
-    {% if user.is_authenticated %}
-        {#表示登录成功显示#}
-        <span>{{ user.username }}</span>
-        <a href="#">登出</a>
-    {% else %}
-        {#未登录显示#}
-        <a href="#">登录</a>
-        <a href="#">注册</a>
-    {% endif %}
+<div id="top">
 
-    <span>
+    <div class="top clear">
+        <a href="/"><span><span class="glyphicon glyphicon-home" style="color: #FF0000"></span>天猫首页</span></a>
+        <span>&nbsp;喵, 欢迎来天猫</span>
+
+        {% if user.is_authenticated %}
+            {#表示登录成功显示#}
+            <a href="#">&nbsp;{{ user.username }}</a>
+            <a href="{% url 'logout' %}">&nbsp;退出登录</a>
+        {% else %}
+            {#未登录显示#}
+            <a href="{% url 'login' %}">请登录</a>
+            <a href="#">&nbsp;免费注册</a>
+        {% endif %}
+
+        <span>
         <a href="#">我的订单</a>
-        <a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span>购物车</a>
+        <a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color: #FF0000"></span>购物车
+            {% if user.is_authenticated %} <span id="car_number">0</span>件 {% endif %}</a>
     </span>
+    </div>
 
 
 </div>

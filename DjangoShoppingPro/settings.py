@@ -1,8 +1,10 @@
 import os
 import sys
 
+# 根目录
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# 配置全局apps的路径,确保python能搜索的到apps目录, 也可以不配置
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 SECRET_KEY = '7t101&gt_*$95vw-^xliuqta1j12g^spxy331#*8*c*&m4=ds)'
@@ -28,6 +30,7 @@ CUSTOM_APPS = [
     'apps.search',
     'apps.cate',
     'apps.main',
+    'apps.shoppingcart',
 ]
 
 # 第三方App
@@ -36,6 +39,7 @@ EXT_APPS = [
     'crispy_forms',
     # 非必要 主要用于修改样式
     'reversion',
+    'django_ajax',
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + EXT_APPS
@@ -130,7 +134,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'apps/main/static'),
 )
 
+# 如果user表继承了auth的user表就得配置AUTH_USER_MODEL
 AUTH_USER_MODEL = 'main.User'
+
+# 定义全局的登陆跳转url
+LOGIN_URL = '/account/login/'
+
 
 # ===============配置访问多媒体的路径=============
 MEDIA_URL = '/media/'

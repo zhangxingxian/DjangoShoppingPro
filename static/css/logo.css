@@ -1,0 +1,29 @@
+.logo {
+    width: 94%;
+    margin: 0 auto;
+
+}
+
+.logo img{
+    float: left;
+}
+
+.search {
+    float: right;
+    position: relative;
+    top: 45px;
+    right: 362px;
+}
+
+.search_floor li {
+    float: left;
+}
+
+.search_floor li span {
+    padding: 0 7px;
+    /*color: #CCCCCC;*/
+}
+
+.search_floor a{
+    text-decoration: none;
+}

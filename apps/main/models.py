@@ -1,8 +1,10 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.files.storage import FileSystemStorage
+from django.db.models.manager import BaseManager, Manager
 from django.db import models
 import os
 import time
+
 
 # --fake 是不执行该迁移脚本但是标记该脚本已经被执行过
 """
@@ -207,7 +209,13 @@ class PropertyValue(models.Model):
         verbose_name_plural = verbose_name
 
 
+class ShopManager(Manager):
+    def filter(self, status=1, *args, **kwargs):
+        return super().filter(*args, **kwargs).filter(status=status)
+
+
 class ShopCar(models.Model):
+    objects = ShopManager()
     car_id = models.AutoField(verbose_name='ID', primary_key=True)
     number = models.IntegerField(verbose_name='商品数量', default=0)
     shop = models.ForeignKey(Shop, models.DO_NOTHING, verbose_name='商品ID')

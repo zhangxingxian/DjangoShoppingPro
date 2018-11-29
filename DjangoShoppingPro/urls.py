@@ -12,13 +12,16 @@ urlpatterns = [
                   url('^home/', include('apps.main.urls')),
                   url('shop/', include('apps.detail.urls')),
                   url('search/', include('apps.search.urls')),
+                  url('account/', include('apps.account.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 '''
+
 from django.conf.urls.static import static
 from django.conf import settings
 
 static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
 是为admin 显示图片用
+
 
 '''

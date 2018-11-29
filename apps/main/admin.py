@@ -23,6 +23,8 @@ class GlobalSettings:
     site_title = '行云商城'
     # 修改底部显示
     site_footer = '行云科技有限责任公司'
+    # 后台菜单样式修改
+    menu_style = 'accordion'
 
 
 xadmin.site.register(views.CommAdminView, GlobalSettings)
