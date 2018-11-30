@@ -132,6 +132,7 @@ STATIC_ROOT = 'static_root'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'apps/main/static'),
+    os.path.join(BASE_DIR, 'apps/detail/static'),
 )
 
 # 如果user表继承了auth的user表就得配置AUTH_USER_MODEL

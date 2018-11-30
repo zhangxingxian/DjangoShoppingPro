@@ -13,6 +13,7 @@ urlpatterns = [
                   url('shop/', include('apps.detail.urls')),
                   url('search/', include('apps.search.urls')),
                   url('account/', include('apps.account.urls')),
+                  url('shopcar/', include('apps.shoppingcart.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 '''
