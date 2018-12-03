@@ -3,86 +3,10 @@
 {% load staticfiles %}
 
 {% block page_css %}
-    <style type="text/css">
-        .shop_img_small {
-
-        }
-
-        .shop_img_small > li {
-            float: left;
-        }
-
-        .shop_img_small {
-            width: 50%;
-            float: left;
-            text-align: center;
-        }
-
-        .shop_detail_img {
-            width: 50%;
-            float: left;
-        }
-
-        .shop_detail_img {
-            width: 50%;
-            float: left;
-        }
-
-        {#内联元素#}
-        #shop_property > div {
-            display: inline-block;
-            width: 30%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
 {% endblock %}
+
 {% block page_js %}
-{#    <script type="text/javascript">#}
-{#        $(function () {#}
-{#            $('#shop_img_small>li').mouseover(function () {#}
-{#                let index = $(this).index();#}
-{#                for (let i = 0; i < $('#shop_img_middle>li').length; i++) {#}
-                    {#表示被选中#}
-{#                    if (index === i) {#}
-{#                        $('#shop_img_middle>li')[i].style.setProperty('display', 'block')#}
-{#                    } else {#}
-{#                        $('#shop_img_middle>li')[i].style.setProperty('display', 'none');#}
-                        {#  其他的要隐藏#}
-{#                    }#}
-{#                }#}
-{##}
-{#            })#}
-{##}
-{#        });#}
-{##}
-{##}
-{#        $(function () {#}
-{#            $('#buy').click(function () {#}
-{#                let number = $('#number').val();#}
-{#                let shop_id = $(this).attr('shopid');#}
-{#                data = {#}
-{#                    number : number,#}
-{#                    shop_id : shop_id,#}
-{#                    csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()#}
-{#                };#}
-{##}
-{##}
-                {## 发起ajax请求#}
-{#                $.post('{% url 'addcar' %}', data, function(result){#}
-{#                    if (result && result.status === 200) {#}
-{#                        let number = $('#car_number').text();#}
-{#                        number += result.data;#}
-{#                        $('#car_number').text(number)#}
-{#                    } else if (result.status === 302) {#}
-{#                        window.location.href = result.content#}
-{#                    }#}
-{##}
-{#                })#}
-{#            });#}
-{#        });#}
-{##}
-{##}
-{#    </script>#}
     <script src="{% static 'js/detail.js' %}" type="text/javascript" language="JavaScript"></script>
 {% endblock %}
 
@@ -90,43 +14,5 @@
     {% csrf_token %}
     {% include 'include/common/top.html' %}
     {% include 'include/shop_content.html' %}
-
-<div>
-        <span>商品详情</span>
-        <span>评价{{ reviews|length }}</span>
-        <div id="shop_detail">
-            <span>产品参数</span>
-            <div id="shop_property">
-                {% for value in values %}
-                    <div class="">
-                        <span>{{ value.property.name }}</span>
-                        <span>{{ value.value }}</span>
-                    </div>
-                {% endfor %}
-            </div>
-            <div id="shop_detail_img">
-                {% for img in shop.imgs %}
-                    {% if img.type == 'type_detail' %}
-                        <img src="/static/img/detail/{{ img.shop_img_id }}.jpg">
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-
-        <div id="shop_detail_review">
-            {% for review in reviews %}
-                <p>
-                    {{ review.content }}
-                    {{ review.create_date|date:'Y-m-d' }}
-                    {{ review.user.user.username }}
-                </p>
-
-            {% endfor %}
-
-
-        </div>
-
-
-    </div>
-
+    {% include 'include/commodity_detail.html' %}
 {% endblock %}

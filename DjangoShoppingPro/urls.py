@@ -14,6 +14,8 @@ urlpatterns = [
                   url('search/', include('apps.search.urls')),
                   url('account/', include('apps.account.urls')),
                   url('shopcar/', include('apps.shoppingcart.urls')),
+                  url('test/', include('apps.testdj.urls')),
+                  url('order/', include('apps.order.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 '''

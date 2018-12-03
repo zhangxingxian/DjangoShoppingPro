@@ -1,0 +1,30 @@
+.shop_img_small {
+
+}
+
+.shop_img_small > li {
+    float: left;
+}
+
+.shop_img_small {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.shop_detail_img {
+    width: 50%;
+    float: left;
+}
+
+.shop_detail_img {
+    width: 50%;
+    float: left;
+}
+
+
+/*#内联元素*/
+#shop_property > div {
+    display: inline-block;
+    width: 30%;
+}

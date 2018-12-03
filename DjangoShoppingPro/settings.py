@@ -31,6 +31,8 @@ CUSTOM_APPS = [
     'apps.cate',
     'apps.main',
     'apps.shoppingcart',
+    'apps.testdj',
+    'apps.order',
 ]
 
 # 第三方App
@@ -66,6 +68,8 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps/detail/templates'),
             os.path.join(BASE_DIR, 'apps/main/templates'),
             os.path.join(BASE_DIR, 'apps/search/templates'),
+            os.path.join(BASE_DIR, 'apps/testdj/templates'),
+            os.path.join(BASE_DIR, 'apps/order/templates'),
         ]
         ,
         'APP_DIRS': True,
@@ -133,6 +137,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'apps/main/static'),
     os.path.join(BASE_DIR, 'apps/detail/static'),
+    os.path.join(BASE_DIR, 'apps/shoppingcart/static'),
+    os.path.join(BASE_DIR, 'apps/testdj/static'),
+    os.path.join(BASE_DIR, 'apps/order/static'),
 )
 
 # 如果user表继承了auth的user表就得配置AUTH_USER_MODEL
@@ -140,7 +147,6 @@ AUTH_USER_MODEL = 'main.User'
 
 # 定义全局的登陆跳转url
 LOGIN_URL = '/account/login/'
-
 
 # ===============配置访问多媒体的路径=============
 MEDIA_URL = '/media/'
@@ -213,3 +219,9 @@ SESSION_COOKIE_AGE = 7 * 24 * 60 * 60  # Session的cookie默认失效日期（2�
 LOGGING = {
 
 }
+
+# ======================支付宝支付相关配置==================
+APP_ID = ''
+
+
+# ======================END支付宝支付相关配置==================
